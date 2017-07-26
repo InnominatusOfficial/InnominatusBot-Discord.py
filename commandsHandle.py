@@ -6,21 +6,18 @@ import dataGet
 import discord
 
 async def roll(message, args, client):
-    if dataGet.hasPermission(message.author, "roll"):
-        if len(args) > 2:
-            try:
-                print("Try: " +args[1]+" " + args[2])
-                messageSend = str(random.randint(int(args[1]), int(args[2])))
-                print(messageSend)
-                await sendMessage(message, client, messageSend)
-            except:
-                messageSend = "Exception in range given. Sorry."
-                await sendMessage(message, client, messageSend)
-        else:
-            messageSend = str(random.randint(1,6))
+    if len(args) > 2:
+        try:
+            print("Try: " +args[1]+" " + args[2])
+            messageSend = str(random.randint(int(args[1]), int(args[2])))
+            print(messageSend)
+            await sendMessage(message, client, messageSend)
+        except:
+            messageSend = "Exception in range given. Sorry."
             await sendMessage(message, client, messageSend)
     else:
-        exit
+        messageSend = str(random.randint(1,6))
+        await sendMessage(message, client, messageSend)
 
 async def help(message, args, client):
     await sendMessage(message, client, "Collecting help.")
