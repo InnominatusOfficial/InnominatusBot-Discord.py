@@ -1,8 +1,4 @@
 command:
-   commandlevel:
-      connect: 1
-      help: 2
-      roll: 2
    connect:
       command-level: 1
    help:
