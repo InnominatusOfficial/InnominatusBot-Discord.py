@@ -55,11 +55,11 @@ class MyClient(discord.Client):
 
     
 
-"""print("Enter the client token.")
+print("Enter the client token.")
 client_id = input()
-print("Input embed message")
+"""print("Input embed message")
 message = input()
 print("input channel ID")
 channelID = input()"""
 
-client.run(str(""))
+client.run(str(client_id))
