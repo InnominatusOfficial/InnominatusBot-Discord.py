@@ -1,0 +1,18 @@
+command:
+   commandlevel:
+      connect: 1
+      help: 2
+      roll: 2
+   connect:
+      command-level: 1
+   help:
+      command-level: 1
+   ping:
+      command-level: 1
+   pong:
+      command-level: 1
+   roll:
+      command-level: 1
+user:
+   SolitudalAutocracy#8379:
+      permissionlevel: 5
