@@ -62,4 +62,4 @@ message = input()
 print("input channel ID")
 channelID = input()"""
 
-client.run(str("MzE5NTE0MDQ3MDUxNTk1Nzc2.DBsvCA.xTIk-hv6FIFCCD2ppzd4u4RSPPE"))
+client.run(str(""))
