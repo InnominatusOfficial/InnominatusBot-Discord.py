@@ -46,7 +46,7 @@ class MyClient(discord.Client):
         if message.content.startswith("i!"):
             args = message.content[2:]
             args = args.split()
-            command = args[0]
+            command = args[0].lower()
             print(command)
             command = initCommands.command.registeredCommands[command]
             await command.runCommand(message, args, client)
