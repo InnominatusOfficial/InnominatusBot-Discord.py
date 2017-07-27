@@ -54,6 +54,7 @@ def init_commands():
     roll = command("roll", 1)
     ping = command("ping", 1)
     pong = command("pong", 1)
+    progress = command("progress", 1)
 
 
 

@@ -7,6 +7,8 @@ command:
       command-level: 1
    pong:
       command-level: 1
+   progress:
+      command-level: 1
    roll:
       command-level: 1
 user:

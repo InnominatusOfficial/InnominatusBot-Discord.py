@@ -4,6 +4,7 @@ import asyncio
 import csv
 import dataGet
 import discord
+import Assets.ProgressBar
 
 async def roll(message, args, client):
     if len(args) > 2:
@@ -107,3 +108,12 @@ async def ping(message, args, client):
 
 async def pong(message, args, client):
     await sendMessage (message, client, "Hmmm, why are you sending me 'pong'? Anything wrong?")
+
+async def progress(message, args, client):
+    if len(args) > 2:
+
+        if args[1].isdigit() and args[2].isdigit():
+            progress = Assets.ProgressBar.form_progress_bar(int(args[1]), int(args[2]))
+            await sendMessage(message, client, str(progress))
+
+

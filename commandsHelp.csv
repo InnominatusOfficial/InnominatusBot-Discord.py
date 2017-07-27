@@ -1,3 +1,5 @@
 help, i!help [command], A command to find the help for your command.
 roll, i!roll [rangeStart] [rangeEnd], Find a random number between ranges. If undefined it will roll a 6 sided dice.
 connect, i!connect [server], Use this to find the invites to all of our servers. You can choose: community or listing or management.
+ping, i!ping, You know what happens.
+progress, i!progress [interval (between symbols)] [progress (%)], Displays a progress bar (for upcoming xp levels)
