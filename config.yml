@@ -11,6 +11,10 @@ command:
       command-level: 1
    roll:
       command-level: 1
+   verify:
+      command-level: 2
 user:
    SolitudalAutocracy#8379:
       permissionlevel: 5
+   dullagamur#3540:
+      permissionlevel: 2

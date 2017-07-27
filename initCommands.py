@@ -55,6 +55,7 @@ def init_commands():
     ping = command("ping", 1)
     pong = command("pong", 1)
     progress = command("progress", 1)
+    verify = command("verify", 2)
 
 
 

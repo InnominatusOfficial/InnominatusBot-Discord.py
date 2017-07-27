@@ -5,6 +5,7 @@ import csv
 import dataGet
 import discord
 import Assets.ProgressBar
+import ast
 
 async def roll(message, args, client):
     if len(args) > 2:
@@ -112,8 +113,42 @@ async def pong(message, args, client):
 async def progress(message, args, client):
     if len(args) > 2:
 
-        if args[1].isdigit() and args[2].isdigit():
-            progress = Assets.ProgressBar.form_progress_bar(int(args[1]), int(args[2]))
+        if args[1].isdigit() and args[2].isdigit() and args[3].isdigit():
+            progress = Assets.ProgressBar.form_progress_bar(int(args[1]), int(args[2]), int(args[3]))
             await sendMessage(message, client, str(progress))
 
+async def verify(message, args, client):
+    if args[1].lower() == "add":
+        try:
+            client.get_invite(args[2])
+            f = open("valid_invites.txt", "r")
+            valid_invites = f.read()
+            valid_invites = ast.literal_eval(valid_invites)
+            f.close()
+            if isinstance(valid_invites, str):
+                valid_invites = [args[2]]
+            else:
+                valid_invites.append(str(args[2]))
+            f = open("valid_invites.txt", "w")
+            f.write(str(valid_invites))
+            f.close()
+        except discord.NotFound:
+            await sendMessage(message, client, "Invite not found/valid.")
+        except:
+            print("Exception")
+            raise Exception
+    elif args[1].lower() == "remove":
+        f = open("valid_invites.txt", "r")
+        valid_invites = f.read()
+        valid_invites = ast.literal_eval(valid_invites)
 
+        f.close()
+        if args[2] in valid_invites:
+            valid_invites.remove(args[2])
+        else:
+            await sendMessage(message, client, "Invite not verified.")
+        f = open("valid_invites.txt", "w")
+        f.write(str(valid_invites))
+        f.close()
+    else:
+        await sendMessage(message, client, "Argument 1 is not given or valid.")

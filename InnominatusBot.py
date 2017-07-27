@@ -12,6 +12,8 @@ import logging
 import dataGet
 from sendMessage import sendMessage
 import initCommands
+import ast
+
 logging.basicConfig(level=logging.INFO)
 client = discord.Client()
 
@@ -50,8 +52,22 @@ class MyClient(discord.Client):
             print(command)
             command = initCommands.command.registeredCommands[command]
             await command.runCommand(message, args, client)
-        else:
-            exit
+        print(message.channel.name)
+        if message.channel.name in ["bronze-servers", "silver-servers", "gold-servers", "platinum-servers", "emerald-servers"]:
+            if "https://discord.gg/" in message.content:
+                emojis = {}
+                for i in message.server.emojis:
+                    emojis[i.name] = i
+                print(str(emojis))
+                f = open("valid_invites.txt", "r")
+                invites = ast.literal_eval(f.read())
+                for i in invites:
+                    if i in message.content:
+                        print("Add reaction")
+                        await client.add_reaction(message, emojis["verified"])
+                        break
+                f.close()
+
 
     
 
