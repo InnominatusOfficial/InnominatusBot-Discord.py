@@ -13,6 +13,8 @@ import dataGet
 from sendMessage import sendMessage
 import initCommands
 import ast
+import os
+import sqlite3
 
 logging.basicConfig(level=logging.INFO)
 client = discord.Client()
@@ -22,6 +24,12 @@ commands = initCommands.init_commands()
 class MyClient(discord.Client):
     @client.event
     async def on_ready():
+        """if os.path.exists("/user_data.db"): first_start = True
+        with sqlite3.connect('user_data.db') as db:
+            if first_start = True:
+                cursor = db.cursor()"""
+                #cursor.execute("""create table """)
+
         print('Logged in as')
         print(client.user.name)
         print(client.user.id)
